@@ -1,1 +1,14 @@
+header{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 1.75rem 1rem;
+}
+
+.logo{
+    width:80%;
+}
+
+a{
+    text-decoration: none;
+}
 
