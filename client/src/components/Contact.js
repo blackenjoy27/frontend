@@ -53,35 +53,7 @@ class Contact extends React.Component{
                             <button>CLEAR</button>
                         </form>
                     </section>
-                    <section>
-                        <section>
-                            <div>
-                                <span>Icon</span>
-                                <h3>Email</h3>
-                                <a>aasd@gmail.com</a>
-                            </div>
-                        </section>
-                        <section>
-                            <div>
-                                <span>Icon</span>
-                                <h3>Phone</h3>
-                                <span>xxx-xxx-xxxx</span>
-                            </div>
-                        </section>
-                        <section>
-                            <div>
-                                <span>Icon</span>
-                                <h3>Address</h3>
-                                <span>
-                                    1234 Somewhere Road #5432
-                                    <br></br>
-                                     Nashville, TN 00000
-                                    <br></br>
-                                     United States of America
-                                </span>
-                            </div>
-                        </section>
-                    </section>
+                    
                 </div>
             </section>
         )

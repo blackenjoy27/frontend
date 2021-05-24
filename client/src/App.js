@@ -1,19 +1,27 @@
 import './App.css';
-import Header from "./components/Header";
-import Major from "./components/Major";
-import Main from "./components/Main";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import HomePage from "./components/HomePage";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import UserPage from "./components/UserPage";
+import {Switch, Route} from "react-router-dom";
+
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <Major/>
-      <Main/>
-      <Contact/>
-      <Footer/>
-    </div>
+        <Switch>
+            <Route path="/protected">
+              <UserPage/>
+            </Route>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/sign-up">
+              <SignUp/>
+            </Route>
+            <Route path="/">
+              <HomePage/>
+            </Route>
+        </Switch>
   );
 }
 
