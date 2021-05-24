@@ -8,7 +8,7 @@ const HomePage = ()=>{
     return(
         <div>
             <header>
-                <a>
+                <a className="logo">
                     <strong>Forty</strong>
                     <span>by HTML5 UP</span>
                 </a>
