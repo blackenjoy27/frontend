@@ -2,15 +2,12 @@ import React from "react";
 import styled from 'styled-components'
 
 const FormDiv = styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin:4rem auto;
-    border: 2px solid silver;
-    width:50%;
-    padding-top:2rem;
-    padding-bottom:4rem;
-    border-radius:5px;
+    background-image: url('https://hips.hearstapps.com/ell.h-cdn.co/assets/15/52/1450738482-elle-potluck-04-getty.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom; 
+    background-size: cover;
+    color: white;
+    padding: 15%;
 `
 
 export default function SignUp(props) {
