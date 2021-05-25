@@ -1,7 +1,6 @@
 import React from "react";
 import Contact from "./Contact";
 import Footer from "./Footer";
-import SignUp from './SignUp'
 
 import {Link} from "react-router-dom";
 
@@ -23,7 +22,6 @@ const HomePage = ()=>{
             </div>
             
             <Contact/>
-            <SignUp/>
             <Footer/>
         </div>
         
