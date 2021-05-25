@@ -22,7 +22,7 @@ const HomePage = ()=>{
 
                 In the world of social gatherings and potlucks the "Potluck Planner" is king. This is your place for all things pot luck.
                 </Paragraph>
-                <Link className="sign-up-btn"><H3>Sign Up</H3></Link>
+                <Link className="sign-up-btn" to = '/sign-up'><H3>Sign Up</H3></Link>
             </MainDiv>
             
             <Contact/>
@@ -55,7 +55,7 @@ background-color: white;
 opacity: 0.7; 
 color: black;
 margin: 3% 5% 10%;
-padding 5%;
+padding: 5%;
 border-radius: 50%;
 `
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 
 const FormDiv = styled.div`
@@ -10,38 +10,34 @@ const FormDiv = styled.div`
     padding: 15%;
 `
 
-export default function SignUp(props) {
-    const {
-        values,
-        submit,
-        change,
-        errors,
-        disabled
-    } = props
-    
+const initialValues = {
+    username: "",
+    password: "",
+    email: ""
+  };
+
+export default function SignUp() {
+    const [values, setValues] = useState(initialValues);
+    const [formValues, setFormValues] = useState(null);
+
+    useEffect(() => {
+        console.log(values);
+      }, [values]);
+
     const onSubmit = event => {
         event.preventDefault()
-        submit()
     }
 
-    const onChange = event => {
-        const { name, value, checked, type } = event.target
-        const valueToUse = type === 'checkbox' ? checked : value
-        change(name, valueToUse)
-    }
+    const onChange = (e) => {
+        const { name, value } = e.target;
+        setValues({ ...values, [name]: value });
+      };
 
     return (
         <FormDiv>
             <form id = 'signup-form'>
                 <div className = 'form-group submit'>
                     <h3>Sign up to join a Potluck, or host your own!</h3>
-
-                    <div className = 'errors'>
-                        <div>{errors.username}</div>
-                        <div>{errors.email}</div>
-                        <div>{errors.password}</div>
-                        <div>{errors.termsOfService}</div>
-                    </div>
                 </div>
 
                 <div className = 'form-group inputs' onSubmit={onSubmit}>
@@ -84,7 +80,7 @@ export default function SignUp(props) {
                     </label>
                 </div>
 
-                <button disabled = {disabled}>Create an Account</button>
+                <button>Create an Account</button>
             </form>
         </FormDiv>
     )
