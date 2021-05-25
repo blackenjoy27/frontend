@@ -26,7 +26,6 @@ class Contact extends React.Component{
         return(
             <section>
                 <div>
-                    <section>
                         <form onSubmit={this.submitForm}>
                             <label>NAME
                                 <input
@@ -52,8 +51,6 @@ class Contact extends React.Component{
                             <button type="submit">SEND MESSAGE</button>
                             <button>CLEAR</button>
                         </form>
-                    </section>
-                    
                 </div>
             </section>
         )

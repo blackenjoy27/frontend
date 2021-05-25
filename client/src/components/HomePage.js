@@ -55,7 +55,7 @@ background-color: white;
 opacity: 0.7; 
 color: black;
 margin: 3% 5% 10%;
-padding 5%;
+padding: 5%;
 border-radius: 50%;
 `
 
