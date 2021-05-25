@@ -4,10 +4,12 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import UserPage from "./components/UserPage";
 import {Switch, Route} from "react-router-dom";
+import PotluckForm from "./components/PotluckForm";
 
 
 function App() {
   return (
+    <div>
         <Switch>
             <Route path="/protected">
               <UserPage/>
@@ -22,6 +24,10 @@ function App() {
               <HomePage/>
             </Route>
         </Switch>
+        <Route path="/protected/create">
+          <PotluckForm/>
+        </Route>
+      </div>
   );
 }
 

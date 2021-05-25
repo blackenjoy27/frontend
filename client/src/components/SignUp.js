@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import React, { useState} from "react";
+import {useHistory} from "react-router-dom";
 import styled from 'styled-components'
 
 const FormDiv = styled.div`
@@ -17,33 +19,38 @@ const initialValues = {
   };
 
 export default function SignUp() {
-    const [values, setValues] = useState(initialValues);
-    const [formValues, setFormValues] = useState(null);
-
-    useEffect(() => {
-        console.log(values);
-      }, [values]);
+    const [newUser, setNewUser] = useState(initialValues);
+    const {push} = useHistory();
+  
 
     const onSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
+        console.log(newUser);
+        axios.post("https://theonewhoknocks.herokuapp.com/api/auth/register", newUser)
+        .then(res=>{
+            console.log(res.data);
+            push("/login");
+        })
+
     }
 
     const onChange = (e) => {
         const { name, value } = e.target;
-        setValues({ ...values, [name]: value });
+        setNewUser({ ...newUser, [name]: value });
       };
 
     return (
         <FormDiv>
-            <form id = 'signup-form'>
-                <div className = 'form-group submit'>
+            <div className = 'form-group submit'>
                     <h3>Sign up to join a Potluck, or host your own!</h3>
-                </div>
+            </div>
+            <form id = 'signup-form' onSubmit={onSubmit}>
+                
 
-                <div className = 'form-group inputs' onSubmit={onSubmit}>
+                <div className = 'form-group inputs' >
                     <label><h3>Username</h3>
                         <input id = 'username-input'
-                            value = {values.username}
+                            value = {newUser.username}
                             onChange = {onChange}
                             name = 'username'
                             type = 'text'
@@ -52,7 +59,7 @@ export default function SignUp() {
 
                     <label><h3>Email</h3>
                         <input id = 'email-input'
-                            value = {values.email}
+                            value = {newUser.email}
                             onChange = {onChange}
                             name = 'email'
                             type = 'text'
@@ -61,23 +68,20 @@ export default function SignUp() {
 
                     <label><h3>Password</h3>
                         <input id = 'password-input'
-                            value = {values.password}
+                            value = {newUser.password}
                             onChange = {onChange}
                             name = 'password'
                             type = 'text'
                         />
                     </label>
-                </div>
-
-                <div className = 'form-group checkboxes'>
-                    <label><h3>Accept Terms of Service</h3>
+                    {/* <label><h3>Accept Terms of Service</h3>
                         <input id = 'terms-of-service check'
                             type = 'checkbox'
-                            name = 'pepperoni'
-                            checked = {values.termsOfService}
+                            // name = 'pepperoni'
+                            checked = {newUser.termsOfService}
                             onChange = {onChange}
                         />
-                    </label>
+                    </label> */}
                 </div>
 
                 <button>Create an Account</button>

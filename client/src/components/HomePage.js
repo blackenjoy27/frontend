@@ -2,7 +2,6 @@ import React from "react";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import styled from 'styled-components'
-
 import {Link} from "react-router-dom";
 
 const HomePage = ()=>{
@@ -13,7 +12,7 @@ const HomePage = ()=>{
                     <strong>Forty</strong>
                     <span>by HTML5 UP</span>
                 </a>
-                <nav>Menu</nav>
+                <Link to="/login">Sign In</Link>
             </header>
             <MainDiv>
                 <h1>Welcome to the Potluck Planner!</h1>

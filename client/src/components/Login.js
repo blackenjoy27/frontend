@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+
+import {login} from "../actions";
+import {connect} from "react-redux";
+
 
 const initialUserValue = {
     username:"",
@@ -35,6 +39,7 @@ const LoginForm = styled.form`
 
 const Login = (props)=>{
     const [user, setUser] = useState(initialUserValue);
+    const {push} = useHistory();
 
     const updateLoginForm = e => {
         setUser({
@@ -43,10 +48,11 @@ const Login = (props)=>{
         })
     }
 
-    const login = e => {
+    const submit = e => {
         e.preventDefault();
-        console.log(user);
-        // axios request for token
+        props.dispatch(login(user));
+        push("/protected");
+
         setUser(initialUserValue);
     }
 
@@ -62,7 +68,7 @@ const Login = (props)=>{
             </header>
             <FormDiv>
                 <h1>Welcome Back</h1>
-                <LoginForm onSubmit={login}>
+                <LoginForm onSubmit={submit}>
                     <input
                         name="username"
                         value={user.username}
@@ -83,4 +89,8 @@ const Login = (props)=>{
 }
 
 
-export default Login;
+export default connect(state=>{
+    return {
+        user_id: state.user_id
+    }
+})(Login);
