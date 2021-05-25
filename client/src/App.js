@@ -5,15 +5,15 @@ import SignUp from "./components/SignUp";
 import UserPage from "./components/UserPage";
 import {Switch, Route} from "react-router-dom";
 import PotluckForm from "./components/PotluckForm";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
   return (
     <div>
         <Switch>
-            <Route path="/protected">
-              <UserPage/>
-            </Route>
+            <PrivateRoute path="/protected" component={UserPage}/>
+             
             <Route path="/login">
               <Login/>
             </Route>

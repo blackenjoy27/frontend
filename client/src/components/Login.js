@@ -50,8 +50,10 @@ const Login = (props)=>{
 
     const submit = e => {
         e.preventDefault();
-        props.dispatch(login(user));
-        push("/protected");
+        props.dispatch(login(user)).then(res=>{
+            push("/protected");
+        });
+        // push("/protected");
 
         setUser(initialUserValue);
     }
@@ -89,8 +91,4 @@ const Login = (props)=>{
 }
 
 
-export default connect(state=>{
-    return {
-        user_id: state.user_id
-    }
-})(Login);
+export default connect()(Login);

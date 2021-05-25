@@ -1,22 +1,29 @@
-import axios from "axios";
-import {useHistory} from "react-router-dom";
+import {axiosWithAuth} from "../helps/axiosWithAuth";
 export const LOGIN = "LOGIN";
+export const ADD_EVENT = "ADD_EVENT";
 
 
 
 export const login = (user) => {
     return(dispatch) => {
-        axios.post("https://theonewhoknocks.herokuapp.com/api/auth/login", user)
+        axiosWithAuth().post("/api/auth/login", user)
         .then(res=>{
-
             localStorage.setItem("token", res.data.token);
-            console.log(res.data);
             dispatch({type:LOGIN, payload: res.data.user_id})
-            //redirect to the userpag
         })
         .catch(error=>{
             console.log(error);
         })
-        
+    }
+}
+export const addEvent = (event) =>{
+    return (dispatch)=>{
+        axiosWithAuth().post("/api/events/", event)
+        .then(res=>{
+            console.log(res.data);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
 }

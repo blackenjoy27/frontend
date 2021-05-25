@@ -1,32 +1,34 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux';
 import * as yup from 'yup';
 import schema from './validation/Schema'
+import {addEvent} from "../actions";
 
 const initialFormValues = {
-    eventName: '',
-    date: '',
-    time: '',
-    state: '',
-    city: '',
-    streetAddress: '',
-    zip: '',
-    maxAttendee: '',
+    event_name: 'Poker',
+    date: "12-12-21",
+    time: "12:00",
+    state: 'NY',
+    city: 'Queen',
+    street_address: '40-35 Sanford',
+    zip: 11445,
+    max_attendee: 10,
 }
 
 const initialFormErrors = {
-    eventName: '',
+    event_name: '',
     date: '',
     time: '',
     state: '',
     city: '',
-    streetAddress: '',
+    street_address: '',
     zip: '',
-    maxAttendee: '',
+    max_attendee: '',
 }
 
 const initialDisabled = true
 
-export default function PotluckForm () {
+const PotluckForm = (props) => {
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
@@ -69,7 +71,7 @@ export default function PotluckForm () {
 
     const formSubmit = e => {
         e.preventDefault();
-        console.log(formSubmit, 'Submitted')
+        
         // axios
         // .post("", formValues)
         // .then(response => {
@@ -79,21 +81,25 @@ export default function PotluckForm () {
         //     setFormValues(formValues)
         // })
         // .catch(err => console.log(err));
+        const newEvent = {...formValues, user_id: props.user_id}
+        console.log(newEvent);
+        console.log(typeof newEvent.user_id);
+        props.dispatch(addEvent(newEvent));
     };
 
 
     return (
         <div>
         <form onSubmit={formSubmit}>
-        <label htmlFor ='eventName'>
+        <label htmlFor ='event_name'>
             <h2>Event Name</h2>
             <p>Required</p>
             <br></br>
             <textarea 
-                name='eventName'
-                id='eventName'
+                name='event_name'
+                id='event_name'
                 placeholder='Must have at least 3 characters'
-                value={formValues.eventName}
+                value={formValues.event_name}
                 onChange={inputChange}
             />
         </label>
@@ -157,27 +163,27 @@ export default function PotluckForm () {
                 onChange={inputChange}
             />
         </label>
-        <label htmlFor ='streetAddress'>
+        <label htmlFor ='street_address'>
             <h2>Street Address</h2>
             <p>Required</p>
             <br></br>
             <textarea 
-                name='streetAddress'
-                id='streetAddress'
+                name='street_address'
+                id='street_address'
                 placeholder='Address'
-                value={formValues.streetAddress}
+                value={formValues.street_address}
                 onChange={inputChange}
             />
         </label>
-        <label htmlFor ='maxAttendee'>
+        <label htmlFor ='max_attendee'>
             <h2>Max Attendees</h2>
             <p>Required</p>
             <br></br>
             <textarea 
-                name='maxAttendee'
-                id='maxAttendee'
+                name='max_attendee'
+                id='max_attendee'
                 placeholder='Must have at least 2 characters'
-                value={formValues.maxAttendee}
+                value={formValues.max_attendee}
                 onChange={inputChange}
             />
         </label>
@@ -188,3 +194,9 @@ export default function PotluckForm () {
         </div >
     )
 }
+
+export default connect(state=>{
+    return{
+        user_id: state.user_id
+    }
+})(PotluckForm)

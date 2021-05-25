@@ -74,16 +74,7 @@ export default function SignUp() {
                             type = 'text'
                         />
                     </label>
-                    {/* <label><h3>Accept Terms of Service</h3>
-                        <input id = 'terms-of-service check'
-                            type = 'checkbox'
-                            // name = 'pepperoni'
-                            checked = {newUser.termsOfService}
-                            onChange = {onChange}
-                        />
-                    </label> */}
                 </div>
-
                 <button>Create an Account</button>
             </form>
         </FormDiv>
