@@ -1,10 +1,9 @@
 import React from "react";
 import PotluckForm from './PotluckForm';
-import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText, HiddenDiv} from './StyledComponents';
+import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText} from './StyledComponents';
 
 
 const UserPage = ()=>{
-    let vis = 'none'
 
     return (
         <MainDiv>
