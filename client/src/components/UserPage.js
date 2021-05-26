@@ -1,12 +1,11 @@
+
 import React, { useEffect } from "react";
-import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText} from './StyledComponents';
 import PrivateRoute from "../components/PrivateRoute";
 import PotluckList from "./PotluckList";
 import PotluckForm from "./PotluckForm";
 import {Link, useHistory} from "react-router-dom";
-
-
-import {restoreData} from "../actions";
+import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText, FormDiv, UserImg} from './StyledComponents';
+import {reset,restoreData} from "../actions";
 import {connect} from "react-redux";
 
 
@@ -26,6 +25,9 @@ const UserPage = (props)=>{
     },[])
 
     const logout = ()=>{
+        props.dispatch(reset());
+        localStorage.removeItem("token");
+        localStorage.removeItem("user-data");
         push("/");
     }
 
@@ -33,24 +35,27 @@ const UserPage = (props)=>{
         <MainDiv>
             <HeaderDiv>
                 <img src = 'https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5e1230986a42a4d4965e22f6_icon.png' alt = 'logo'/>
+
                 <LogoutButton onClick={logout}>Log Out</LogoutButton>
             </HeaderDiv>
+
             <UserDiv>
-                <img src = 'https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5e1230986a42a4d4965e22f6_icon.png' alt = 'user-img'/>
+                <UserImg src = 'https://www.netclipart.com/pp/f/311-3110823_potluck-icon.png' alt = 'user-img'/>
                 <UserText>
-                <h2>Name</h2>
-                <p>Introduction</p>
+                <h2>Username</h2>
+                <p>User Introduction</p>
                 </UserText>
                 <Button>Edit User Info</Button>
             </UserDiv>
             <ButtonDiv>
-                {/* <Button>Join Potluck</Button> */}
                 <Button onClick={()=>push("/protected/events")}> Join Potluck </Button>
                 <Button onClick={()=>push("/protected/create")}>Create Potluck</Button>
                 <Button>Edit Potluck</Button>
             </ButtonDiv>
             <PrivateRoute path="/protected/events" component={PotluckList}/> 
             <PrivateRoute path="/protected/create" component={PotluckForm}/>
+
+
         </MainDiv>
     )
 }
