@@ -1,7 +1,6 @@
-import {LOGIN, ADD_EVENT} from "../actions";
+import {LOGIN, ADD_EVENT, LOG_OUT, LOAD_EVENTS} from "../actions";
 
 const initialState = {
-    isLogin: false,
     user_id: null,
     events:[]
 }
@@ -18,6 +17,13 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 events: [...state.events, action.payload]
             }
+        case LOAD_EVENTS:
+            return{
+                ...state,
+                events: action.payload
+            }
+        case LOG_OUT:
+            return initialState;
         default:
             return state
     }

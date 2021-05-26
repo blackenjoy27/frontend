@@ -6,6 +6,7 @@ import UserPage from "./components/UserPage";
 import {Switch, Route} from "react-router-dom";
 import PotluckForm from "./components/PotluckForm";
 import PrivateRoute from "./components/PrivateRoute";
+import PotluckList from "./components/PotluckList";
 
 
 function App() {
@@ -24,9 +25,9 @@ function App() {
               <HomePage/>
             </Route>
         </Switch>
-        <Route path="/protected/create">
-          <PotluckForm/>
-        </Route>
+        <PrivateRoute  path="/protected/create" component={PotluckForm}/>
+        <PrivateRoute  path="/protected/events" components={PotluckList}/>
+
       </div>
   );
 }

@@ -1,12 +1,15 @@
 import React from "react";
 import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText} from './StyledComponents';
 import {Link, useHistory} from "react-router-dom";
+import {reset} from "../actions";
+import {connect} from "react-redux";
 
-const UserPage = ()=>{
+const UserPage = (props)=>{
     const {push} = useHistory();
 
     const logout = ()=>{
         localStorage.removeItem("token");
+        props.dispatch(reset());
         push("/");
     }
 
@@ -25,8 +28,8 @@ const UserPage = ()=>{
                 <Button>Edit User Info</Button>
             </UserDiv>
             <ButtonDiv>
-                <Button>Join Potluck</Button>
-                
+                {/* <Button>Join Potluck</Button> */}
+                <Link to="/protected/events"> Join Potluck </Link>
                 <Link to="/protected/create">Create Potluck</Link>
                 <Button>Edit Potluck</Button>
             </ButtonDiv>
@@ -35,4 +38,4 @@ const UserPage = ()=>{
 }
 
 
-export default UserPage;
+export default connect()(UserPage);

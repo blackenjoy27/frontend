@@ -71,19 +71,7 @@ const PotluckForm = (props) => {
 
     const formSubmit = e => {
         e.preventDefault();
-        
-        // axios
-        // .post("", formValues)
-        // .then(response => {
-        //     const apiReturn = response.data
-        //     console.log(response.data)
-        //     setUsers([...users, apiReturn])
-        //     setFormValues(formValues)
-        // })
-        // .catch(err => console.log(err));
         const newEvent = {...formValues, user_id: props.user_id}
-        console.log(newEvent);
-        console.log(typeof newEvent.user_id);
         props.dispatch(addEvent(newEvent));
     };
 

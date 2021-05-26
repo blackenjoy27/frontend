@@ -4,6 +4,7 @@ import {Link, useHistory} from "react-router-dom";
 
 import {login} from "../actions";
 import {connect} from "react-redux";
+import {axiosWithAuth} from "../helps/axiosWithAuth";
 
 
 const initialUserValue = {
@@ -50,12 +51,23 @@ const Login = (props)=>{
 
     const submit = e => {
         e.preventDefault();
-        props.dispatch(login(user)).then(res=>{
-            push("/protected");
-        });
-        // push("/protected");
-
-        setUser(initialUserValue);
+        axiosWithAuth().post("/api/auth/login", user)
+        .then(res1=>{
+            localStorage.setItem("token", res1.data.token);
+            return res1.data.user_id;
+        })
+        .then((res1)=>{
+            axiosWithAuth().get('/api/events/getall')
+            .then(res2 =>{
+                const {data} = res2;
+                props.dispatch(login(res1, data));
+                push('/protected')
+            })
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+        
     }
 
     return(
@@ -91,4 +103,8 @@ const Login = (props)=>{
 }
 
 
-export default connect()(Login);
+export default connect(state=>{
+    return {
+        id: state.user_id
+    }
+})(Login);
