@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText} from './StyledComponents';
+import PrivateRoute from "../components/PrivateRoute";
+import PotluckList from "./PotluckList";
+import PotluckForm from "./PotluckForm";
 import {Link, useHistory} from "react-router-dom";
-import {reset} from "../actions";
+
+
+import {restoreData} from "../actions";
 import {connect} from "react-redux";
+
 
 const UserPage = (props)=>{
     const {push} = useHistory();
 
+    useEffect(()=>{
+        const userData = localStorage.getItem("user-data");
+        let backup;
+        if(userData){
+            backup = JSON.parse(userData);
+            props.dispatch(restoreData(backup));
+        }else{
+            backup = JSON.stringify(props.state);
+            localStorage.setItem("user-data",backup);
+        }
+    },[])
+
     const logout = ()=>{
-        localStorage.removeItem("token");
-        props.dispatch(reset());
         push("/");
     }
 
@@ -29,13 +45,17 @@ const UserPage = (props)=>{
             </UserDiv>
             <ButtonDiv>
                 {/* <Button>Join Potluck</Button> */}
-                <Link to="/protected/events"> Join Potluck </Link>
-                <Link to="/protected/create">Create Potluck</Link>
+                <Button onClick={()=>push("/protected/events")}> Join Potluck </Button>
+                <Button onClick={()=>push("/protected/create")}>Create Potluck</Button>
                 <Button>Edit Potluck</Button>
             </ButtonDiv>
+            <PrivateRoute path="/protected/events" component={PotluckList}/> 
+            <PrivateRoute path="/protected/create" component={PotluckForm}/>
         </MainDiv>
     )
 }
 
 
-export default connect()(UserPage);
+export default connect(state=>{
+    return{state};
+})(UserPage);
