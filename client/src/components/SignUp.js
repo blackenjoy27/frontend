@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
-import styled from 'styled-components';
+
+import axios from "axios";
+import React, { useState} from "react";
+import {useHistory} from "react-router-dom";
+import styled from 'styled-components'
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -10,6 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -48,21 +52,26 @@ const initialValues = {
   };
 
 export default function SignUp() {
-    const classes = useStyles();
-    const [values, setValues] = useState(initialValues);
-    const [formValues, setFormValues] = useState(null);
 
-    useEffect(() => {
-        console.log(values);
-      }, [values]);
+    const [newUser, setNewUser] = useState(initialValues);
+    const {push} = useHistory();
+    const classes = useStyles();
+
 
     const onSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
+        console.log(newUser);
+        axios.post("https://theonewhoknocks.herokuapp.com/api/auth/register", newUser)
+        .then(res=>{
+            console.log(res.data);
+            push("/login");
+        })
+
     }
 
     const onChange = (e) => {
         const { name, value } = e.target;
-        setValues({ ...values, [name]: value });
+        setNewUser({ ...newUser, [name]: value });
       };
 
     return (
@@ -88,7 +97,7 @@ export default function SignUp() {
                                     type="email"
                                     label="Email Address"
                                     onChange={onChange}
-                                    value={values.email}
+                                    value = {newUser.email}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -100,8 +109,8 @@ export default function SignUp() {
                                     onChange={onChange}
                                     id="username"
                                     label="Username"
-                                    value={values.username}
                                     autoFocus
+                                    value = {newUser.username}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -114,7 +123,7 @@ export default function SignUp() {
                                     type="password"
                                     label="Password"
                                     onChange={onChange}
-                                    value={values.password}
+                                    value = {newUser.password}
                                 />
                             </Grid>
                         </Grid>

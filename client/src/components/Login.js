@@ -1,6 +1,11 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+
+import {login} from "../actions";
+import {connect} from "react-redux";
+import {axiosWithAuth} from "../helps/axiosWithAuth";
+
 
 const initialUserValue = {
     username:"",
@@ -35,6 +40,7 @@ const LoginForm = styled.form`
 
 const Login = (props)=>{
     const [user, setUser] = useState(initialUserValue);
+    const {push} = useHistory();
 
     const updateLoginForm = e => {
         setUser({
@@ -43,11 +49,25 @@ const Login = (props)=>{
         })
     }
 
-    const login = e => {
+    const submit = e => {
         e.preventDefault();
-        console.log(user);
-        // axios request for token
-        setUser(initialUserValue);
+        axiosWithAuth().post("/api/auth/login", user)
+        .then(res1=>{
+            localStorage.setItem("token", res1.data.token);
+            return res1.data.user_id;
+        })
+        .then((res1)=>{
+            axiosWithAuth().get('/api/events/getall')
+            .then(res2 =>{
+                const {data} = res2;
+                props.dispatch(login(res1, data));
+                push('/protected')
+            })
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+        
     }
 
     return(
@@ -62,7 +82,7 @@ const Login = (props)=>{
             </header>
             <FormDiv>
                 <h1>Welcome Back</h1>
-                <LoginForm onSubmit={login}>
+                <LoginForm onSubmit={submit}>
                     <input
                         name="username"
                         value={user.username}
@@ -83,4 +103,8 @@ const Login = (props)=>{
 }
 
 
-export default Login;
+export default connect(state=>{
+    return {
+        id: state.user_id
+    }
+})(Login);

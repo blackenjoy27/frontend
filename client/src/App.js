@@ -4,14 +4,15 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import UserPage from "./components/UserPage";
 import {Switch, Route} from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
   return (
+    <div>
         <Switch>
-            <Route path="/protected">
-              <UserPage/>
-            </Route>
+            <PrivateRoute path="/protected" component={UserPage}/>
+             
             <Route path="/login">
               <Login/>
             </Route>
@@ -22,6 +23,7 @@ function App() {
               <HomePage/>
             </Route>
         </Switch>
+      </div>
   );
 }
 

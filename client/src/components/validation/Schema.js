@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 
 export default yup.object().shape({
-    eventName: yup
+    event_name: yup
         .string(),
     date: yup
         .string(),
@@ -11,10 +11,10 @@ export default yup.object().shape({
         .string(),
     city: yup
         .string(),
-    streetAddress: yup
+    street_address: yup
         .string(),
     zip: yup
-        .string(),
-    maxAttendee: yup
-        .string(),
+        .number(),
+    max_attendee: yup
+        .number(),
 })

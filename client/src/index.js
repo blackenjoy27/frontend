@@ -5,9 +5,11 @@ import App from './App';
 import {Provider}from "react-redux"
 import {createStore, applyMiddleware} from "redux"
 import {BrowserRouter as Router} from "react-router-dom";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 import reducer from "./reducer";
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
