@@ -1,17 +1,12 @@
-import React, {useEffect}from "react";
+import React from "react";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import styled from 'styled-components'
 import {Link} from "react-router-dom";
-import {reset} from "../actions";
-import {connect} from "react-redux";
 
-const HomePage = (props)=>{
-    useEffect(()=>{
-        props.dispatch(reset());
-        localStorage.removeItem("token");
-        localStorage.removeItem("user-data");
-    },[])
+
+const HomePage = ()=>{
+    
     return(
         <BgDiv>
             <header>
@@ -40,7 +35,7 @@ const HomePage = (props)=>{
 }
 
 
-export default connect()(HomePage);
+export default HomePage;
 
 const MainDiv = styled.div`
 background-image: url('https://images.unsplash.com/photo-1617201835175-aab7b1d71d87?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1265&q=80');

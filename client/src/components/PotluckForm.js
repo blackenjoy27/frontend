@@ -199,13 +199,13 @@ const PotluckForm = (props) => {
                 placeholder='Address'
                 value={formValues.street_address}
                 onChange={inputChange}
-                InputProps={{
-                  endAdornment: (
-                    <IconButton onClick={locationSet}>
-                      {/* <LocationSearchingIcon /> */}
-                    </IconButton>
-                  )
-                }}
+                // InputProps={{
+                //   endAdornment: (
+                //     <IconButton onClick={locationSet}>
+                //       {/* <LocationSearchingIcon /> */}
+                //     </IconButton>
+                //   )
+                // }}
               />
             </Grid>
             <Grid item xs={12} sm={6}>

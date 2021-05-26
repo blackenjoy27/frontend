@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import PrivateRoute from "../components/PrivateRoute";
 import PotluckList from "./PotluckList";
 import PotluckForm from "./PotluckForm";
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText, FormDiv, UserImg} from './StyledComponents';
 import {reset,restoreData} from "../actions";
 import {connect} from "react-redux";
