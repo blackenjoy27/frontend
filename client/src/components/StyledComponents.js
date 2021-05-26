@@ -2,37 +2,38 @@ import styled from 'styled-components';
 
 // HOME PAGE STYLING // 
 
-const IntroDiv = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-margin: 2% 20%;
-`;
+// const IntroDiv = styled.div`
+// display: flex;
+// flex-wrap: wrap;
+// justify-content: center;
+// margin: 2% 20%;
+// `;
 
-const LoginButton = styled.button`
-padding: 0.5em;
-margin: 2.5% 2.5%;
-height: fit-content;
-background: white;
-color: black;
-border-radius: 10px;
-`;
+// const LoginButton = styled.button`
+// padding: 0.5em;
+// margin: 2.5% 2.5%;
+// height: fit-content;
+// background: white;
+// color: black;
+// border-radius: 10px;
+// `;
 
-const LabelDiv = styled.div`
-display: flex;
-justify-content: space-around;
-margin: 2%;
-`;
+// const LabelDiv = styled.div`
+// display: flex;
+// justify-content: space-around;
+// margin: 2%;
+// `;
 
-const Label = styled.label`
-display: flex;
-margin: 20% 0;
-`;
+// const Label = styled.label`
+// display: flex;
+// margin: 20% 0;
+// `;
 
 // USER PAGE STYLING //
 
 const MainDiv = styled.div`
-margin: 0 auto;
+background-color: #ffbf80;
+padding: 3% 0;
 `;
 
 const HeaderDiv = styled.div`
@@ -53,21 +54,32 @@ color: black;
 border-radius: 10px;
 `;
 
+const UserImg = styled.img`
+width: 20%;
+`;
+
 const UserDiv = styled.div`
 display: flex;
 justify-content: space-between;
-margin: 0 12%;
+margin: 0;
+padding-right: 21%;
+padding-left: 20%;
+padding-bottom: 3%;
+background: white;
 `;
 
 const UserText = styled.div`
-margin-right: 40%;
+padding-right: 40%;
+background: white;
 `;
 
 const ButtonDiv = styled.div`
+padding-right: 12%;
+padding-left: 12%;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-margin-top: 8%;
+background-color: white;
 `;
 
 const Button = styled.button`
@@ -77,12 +89,18 @@ margin-top: 3%;
 background: white;
 color: black;
 border-radius: 10px;
-margin-right: 0;
+:hover{
+    color: #ffbf80;
+    border-color: #ffbf80;
+}
 `;
 
-const HiddenDiv = styled.div`
-visibility: hidden;
+const FormDiv = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+background: white;
 `;
 
-export {LoginButton, IntroDiv, Label, LabelDiv};
-export {HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText, HiddenDiv};
+// export {LoginButton, IntroDiv, Label, LabelDiv};
+export {HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv};
