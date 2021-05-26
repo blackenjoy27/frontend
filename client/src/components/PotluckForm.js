@@ -109,7 +109,9 @@ const PotluckForm = (props) => {
 
    const formSubmit = e => {
         e.preventDefault();
-        const newEvent = {...formValues, user_id: props.user_id}
+        console.log("Invoke");
+        const newEvent = {...formValues, organizer_id: props.user_id};
+        console.log(newEvent);
         props.dispatch(addEvent(newEvent));
     };
 
@@ -242,7 +244,7 @@ const PotluckForm = (props) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            disabled={disabled}
+            // disabled={disabled}
           >
             Create Potluck
           </Button>
