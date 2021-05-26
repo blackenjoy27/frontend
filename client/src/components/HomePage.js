@@ -2,10 +2,23 @@ import React from "react";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import styled from 'styled-components'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+
 
 
 const HomePage = ()=>{
+    const {push} = useHistory();
+
+    
+    const checkStillLogin = (e)=>{
+        e.preventDefault();
+        const token = localStorage.getItem("token");
+        if(token){
+            push("/protected");
+        }else{
+            push("/login");
+        }
+    }
     
     return(
         <BgDiv>
@@ -14,7 +27,8 @@ const HomePage = ()=>{
                     <strong>Forty</strong>
                     <span>by HTML5 UP</span>
                 </a>
-                <Link to="/login">Sign In</Link>
+                <Link onClick={checkStillLogin} className="sign-up-btn">Sign In</Link>
+                
             </header>
             <MainDiv>
                 <h1>Welcome to the Potluck Planner!</h1>
@@ -23,7 +37,8 @@ const HomePage = ()=>{
 
                 In the world of social gatherings and potlucks the "Potluck Planner" is king. This is your place for all things pot luck.
                 </Paragraph>
-                <Link className="sign-up-btn" to = '/sign-up'><H3>Sign Up</H3></Link>
+                <Link className="sign-up-btn" to="/sign-up">Sign Up</Link>  
+                
             </MainDiv>
             
             <Contact/>

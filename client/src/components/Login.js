@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import {Link, useHistory} from "react-router-dom";
 
@@ -48,6 +48,12 @@ const Login = (props)=>{
             [e.target.name]: e.target.value
         })
     }
+    useEffect(()=>{
+        console.log(props.id);
+        if(props.id){
+            push("/protected");
+        }
+    },[])
 
     const submit = e => {
         e.preventDefault();

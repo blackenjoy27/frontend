@@ -99,6 +99,7 @@ const PotluckForm = (props) => {
                 [e.target.name]: err.errors[0]
             })
         })
+    }
 
    const inputChange = e => {
         validate(e);
@@ -253,7 +254,7 @@ const PotluckForm = (props) => {
   );
 }
 
-}
+
 
 export default connect(state=>{
     return{
