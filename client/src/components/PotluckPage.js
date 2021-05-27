@@ -61,14 +61,15 @@ const PotluckPage = (props)=>{
                     
                 <div className={classes.paper}>{potluck &&
                     <Typography component="h2" variant="h5">
-                        {`${potluck.event_name} is taking place at`}<br></br>
+                        <strong>{`${potluck.event_name} is taking place at`}<br></br>
                         {potluck.street_address}<br></br>
                         {`${potluck.city}, ${potluck.state}`}<br></br>
                         {potluck.zip}
                         <br></br><br></br>
                         {`Event date: ${potluck.date}`}
                         <br></br><br></br>
-                        {`Event time: ${potluck.time}`}
+                        {`Event time: ${potluck.time}`}</strong>
+                        <br></br><br></br>
                         {potluck.attendees.length!==0 && potluck.attendees.map(food=>{
                             return <Food food={food}/>
                         })}
