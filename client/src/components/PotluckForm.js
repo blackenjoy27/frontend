@@ -11,7 +11,7 @@ import Container from "@material-ui/core/Container";
 import { connect } from 'react-redux';
 import * as yup from 'yup';
 import schema from './validation/Schema'
-import {finishEditEvent,addEvent} from "../actions";
+import {finishEditEvent,addEvent, getEvents} from "../actions";
 import { axiosWithAuth } from '../helps/axiosWithAuth';
 
 
@@ -118,15 +118,13 @@ const PotluckForm = (props) => {
         };
         
         if(props.event){
-          // axiosWithAuth().put(`/api/events/${props.event.event_id}`, newEvent)
-          // .then(res=>{
-          //   console.log(res.data);
-          // })
-          // .catch(error=>{
-          //   console.log(error);
-          // })
-          console.log(props.event.event_id);
-          console.log(newEvent);
+          axiosWithAuth().put(`/api/events/${props.event.event_id}`, newEvent)
+          .then(res=>{
+            props.dispatch(getEvents());
+          })
+          .catch(error=>{
+            console.log(error.response.data);
+          })
           props.dispatch(finishEditEvent());
           props.history.push("/protected/user-events");
         }else{
