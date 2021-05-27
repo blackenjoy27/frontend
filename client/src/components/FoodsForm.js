@@ -26,6 +26,7 @@ const FoodsForm = (props)=>{
                 console.log(error);
             })
         }
+        
     }
     const connectFoodsToEvent = ()=>{
         props.history.push("/protected");
