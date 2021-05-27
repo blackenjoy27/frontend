@@ -1,9 +1,10 @@
-import {LOGIN, ADD_EVENT, LOG_OUT, LOAD_EVENTS, RESTORE_DATA,CREATING_NEW_EVENT} from "../actions";
+import {LOGIN, ADD_EVENT, LOG_OUT, LOAD_EVENTS, RESTORE_DATA,CREATING_NEW_EVENT, EDIT_EVENT, DONE_EDIT_EVENT} from "../actions";
 
 const initialState = {
     user_id: null,
     events:[],
-    newEventId: null
+    newEventId: null,
+    editingEvent: null
 }
 
 const reducer = (state = initialState, action)=>{
@@ -35,6 +36,17 @@ const reducer = (state = initialState, action)=>{
 
         case RESTORE_DATA:
             return action.payload;
+        
+        case EDIT_EVENT:
+            return{
+                ...state,
+                editingEvent: action.payload
+            }
+        case DONE_EDIT_EVENT:
+            return{
+                ...state,
+                editingEvent:null
+            }
             
         default:
             return state
