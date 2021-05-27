@@ -61,7 +61,6 @@ const Login = (props)=>{
         })
     }
     useEffect(()=>{
-        console.log(props.id);
         if(props.id){
             push("/protected");
         }
@@ -83,7 +82,7 @@ const Login = (props)=>{
             })
         })
         .catch(error=>{
-            console.log(error);
+            alert("Username or password is incorrect");
         })
         
     }

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import Avatar from "@material-ui/core/Avatar";
+import React, { useState} from 'react'
+
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import { IconButton } from "@material-ui/core";
+
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import * as yup from 'yup';
 import schema from './validation/Schema'
 import {addEvent} from "../actions";
+
 
 
 const initialFormValues = {
@@ -58,23 +59,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     console.log("Geolocation is not supported by this browser.");
-//   }
-// }
-
-// function showPosition(position) {
-//   setLocation(position.coords.latitude + "," + position.coords.longitude);
-// }
-// getLocation();
-
-// function locationSet() {
-//   setValues({ ...values, location: location });
-// }
-
 const PotluckForm = (props) => {
     const classes = useStyles();
     const [formValues, setFormValues] = useState(initialFormValues)
@@ -109,150 +93,146 @@ const PotluckForm = (props) => {
 
    const formSubmit = e => {
         e.preventDefault();
-        console.log("Invoke");
         const newEvent = {...formValues, organizer_id: props.user_id};
-        console.log(newEvent);
         props.dispatch(addEvent(newEvent));
+        props.history.push("/protected/add-foods");
     };
 
 
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        
-        <Typography component="h1" variant="h5">
-          Create Your Own Potluck!
-        </Typography>
-        <form className={classes.form} onSubmit={formSubmit}>
-          <Grid container spacing={2}>
-          <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                label="Event Name"
-                name='event_name'
-                id='event_name'
-                value={formValues.event_name}
-                onChange={inputChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="date"
-                variant="outlined"
-                required
-                fullWidth
-                id="date"
-                label="Date"
-                autoFocus
-                value={formValues.date}
-                onChange={inputChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="time"
-                variant="outlined"
-                required
-                fullWidth
-                id="time"
-                label="Time"
-                value={formValues.time}
-                onChange={inputChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="city"
-                variant="outlined"
-                required
-                fullWidth
-                label="City"
-                autoFocus
-                value={formValues.city}
-                onChange={inputChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="state"
-                variant="outlined"
-                required
-                fullWidth
-                label="State"
-                autoFocus
-                value={formValues.state}
-                onChange={inputChange}
+    <div>
+      <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+              
+              <Typography component="h1" variant="h5">
+                Create Your Own Potluck!
+              </Typography>
+              <form className={classes.form} onSubmit={formSubmit}>
+                <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      label="Event Name"
+                      name='event_name'
+                      id='event_name'
+                      value={formValues.event_name}
+                      onChange={inputChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      name="date"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="date"
+                      label="Date"
+                      autoFocus
+                      value={formValues.date}
+                      onChange={inputChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      name="time"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="time"
+                      label="Time"
+                      value={formValues.time}
+                      onChange={inputChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      name="city"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      label="City"
+                      autoFocus
+                      value={formValues.city}
+                      onChange={inputChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      name="state"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      label="State"
+                      autoFocus
+                      value={formValues.state}
+                      onChange={inputChange}
+                      
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      
+                      variant="outlined"
+                      required
+                      fullWidth
+                      label="Street Address"
+                      type="address"
+                      id="streetAddress"
+                      name='street_address'
+                      placeholder='Address'
+                      value={formValues.street_address}
+                      onChange={inputChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      name="zip"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="zip"
+                      label="Zip Code"
+                      autoFocus
+                      value={formValues.zip}
+                      onChange={inputChange}
+                      
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      label="Max Attendees"
+                      autoFocus
+                      name='max_attendee'
+                      value={formValues.max_attendee}
+                      onChange={inputChange}
+                    />
+                  </Grid>
+                </Grid>
                 
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                
-                variant="outlined"
-                required
-                fullWidth
-                label="Street Address"
-                type="address"
-                id="streetAddress"
-                name='street_address'
-                placeholder='Address'
-                value={formValues.street_address}
-                onChange={inputChange}
-                // InputProps={{
-                //   endAdornment: (
-                //     <IconButton onClick={locationSet}>
-                //       {/* <LocationSearchingIcon /> */}
-                //     </IconButton>
-                //   )
-                // }}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="zip"
-                variant="outlined"
-                required
-                fullWidth
-                id="zip"
-                label="Zip Code"
-                autoFocus
-                value={formValues.zip}
-                onChange={inputChange}
-                
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                label="Max Attendees"
-                autoFocus
-                name='max_attendee'
-                value={formValues.max_attendee}
-                onChange={inputChange}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            // disabled={disabled}
-          >
-            Create Potluck
-          </Button>
-          <Grid container justify="flex-end">
-          </Grid>
-        </form>
-      </div>
-    </Container>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  // disabled={disabled}
+                >
+                  Create Potluck
+                </Button>
+                <Grid container justify="flex-end">
+                </Grid>
+              </form>
+            </div>
+          </Container>
+    </div>
+    
   );
 }
 

@@ -5,21 +5,28 @@ import SignUp from "./components/SignUp";
 import UserPage from "./components/UserPage";
 import {Switch, Route} from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
+import PotluckForm from "./components/PotluckForm";
+import PotluckPage from "./components/PotluckPage"
+import FoodsForm from "./components/FoodsForm";
+
 
 
 function App() {
   return (
     <div>
         <Switch>
-            <PrivateRoute path="/protected" component={UserPage}/>
+            <PrivateRoute exact path="/protected" component={UserPage}/>
+            <PrivateRoute exact path="/protected/create" component={PotluckForm}/>
+            <PrivateRoute exact path="/protected/event/:id" component={PotluckPage} />
+            <PrivateRoute exact path="/protected/add-foods" component={FoodsForm} />
              
-            <Route path="/login">
+            <Route exact path="/login">
               <Login/>
             </Route>
-            <Route path="/sign-up">
+            <Route exact path="/sign-up">
               <SignUp/>
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <HomePage/>
             </Route>
         </Switch>
