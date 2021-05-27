@@ -1,5 +1,5 @@
 import React from "react";
-import {MessageDiv, ContactDiv, ContactLabel, MessageButtons} from './StyledComponents';
+import {MessageDiv, ContactDiv, ContactLabel, MessageButtons, Button} from './StyledComponents';
 
 const initialFormValue = {
     name:"",
@@ -56,8 +56,8 @@ class Contact extends React.Component{
                                 />
                                 </ContactDiv>
                             <MessageButtons>
-                            <button type="submit">SEND MESSAGE</button>
-                            <button>CLEAR</button>
+                            <Button type="submit">SEND MESSAGE</Button>
+                            <Button>CLEAR</Button>
                             </MessageButtons>
                             
                             </div>

@@ -106,3 +106,4 @@ background-color: white;
 text-align: center;
 text-decoration: none;
 `
+export {NavLink};
