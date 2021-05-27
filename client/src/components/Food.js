@@ -1,8 +1,8 @@
 import React from "react";
 import {getEvents} from "../actions";
 import {connect} from "react-redux";
-
 import {axiosWithAuth} from "../helps/axiosWithAuth";
+import Button from "@material-ui/core/Button";
 
 const Food = (props) =>{
     const {food} = props;
@@ -22,13 +22,17 @@ const Food = (props) =>{
 
     return(
         <div>
-            <h2>{food.food_name}</h2>
-            <button onClick={handleClick}>{food.username?food.username:"Empty"}</button>
+            <h4>{food.food_name}</h4>
+            <Button onClick={handleClick}
+                color='secondary'
+                fullWidth
+                variant='contained'
+                >{food.username?food.username:"I can bring this!"}
+            </Button>
         </div>
         
         
     )
 }
-
 
 export default connect()(Food);
