@@ -3,6 +3,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import styled from 'styled-components'
 import {Link, useHistory} from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 
 
@@ -27,7 +28,11 @@ const HomePage = ()=>{
                     <strong>Forty</strong>
                     <span>by HTML5 UP</span>
                 </a>
-                <Link onClick={checkStillLogin} className="sign-up-btn">Sign In</Link>
+                <Link onClick={checkStillLogin} className="sign-up-btn">
+                    <NavLink variant="outline-light" size="lg" color="white">
+                        Sign In
+                    </NavLink>
+                </Link>
                 
             </header>
             <MainDiv>
@@ -37,7 +42,11 @@ const HomePage = ()=>{
 
                 In the world of social gatherings and potlucks the "Potluck Planner" is king. This is your place for all things pot luck.
                 </Paragraph>
-                <Link className="sign-up-btn" to="/sign-up">Sign Up</Link>  
+                <Link className="sign-up-btn" to="/sign-up">
+                    <NavLink variant="outline-light" size="lg" color="white">
+                        Sign Up
+                    </NavLink>
+                </Link>  
                 
             </MainDiv>
             
@@ -58,12 +67,15 @@ background-repeat: no-repeat;
 background-position: bottom; 
 background-size: cover;
 color: white;
-padding: 15%;
+padding-left: 15%;
+padding-right: 5%;
+padding-top: 5%;
+padding-bottom: 15%;
 `
 
 const BgDiv = styled.div`
 background-color: #ffbf80;
-padding: 3% 0;
+padding: 1% 0;
 `
 
 const Paragraph = styled.p`
@@ -74,6 +86,16 @@ margin: 3% 5% 10%;
 padding: 5%;
 border-radius: 50%;
 `
+const NavLink = styled(Button)`
+padding: 5px;
+border-radius: 5px;
+background: white;
+color: black;
+text-decoration: none;
+&:hover {
+color: #ffbf80;
+}
+`;
 
 const H3 = styled.div`
 color: black;
