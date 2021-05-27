@@ -1,5 +1,5 @@
 import React from "react";
-import {EventDiv} from "./StyledComponents";
+import {EventDiv, Button} from "./StyledComponents";
 
 const Potluck = (props)=>{
     const {event, push} = props;
@@ -8,7 +8,7 @@ const Potluck = (props)=>{
         <div>
             <EventDiv>
                 <h1>{event.event_name}</h1>
-                <button onClick={()=>push(`/protected/event/${event.event_id}`)}>View</button>
+                <Button onClick={()=>push(`/protected/event/${event.event_id}`)}>View</Button>
             </EventDiv>
         </div>
 

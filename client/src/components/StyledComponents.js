@@ -1,57 +1,27 @@
 import styled from 'styled-components';
 
-// HOME PAGE STYLING // 
-
-// const IntroDiv = styled.div`
-// display: flex;
-// flex-wrap: wrap;
-// justify-content: center;
-// margin: 2% 20%;
-// `;
-
-// const LoginButton = styled.button`
-// padding: 0.5em;
-// margin: 2.5% 2.5%;
-// height: fit-content;
-// background: white;
-// color: black;
-// border-radius: 10px;
-// `;
-
-// const LabelDiv = styled.div`
-// display: flex;
-// justify-content: space-around;
-// margin: 2%;
-// `;
-
-// const Label = styled.label`
-// display: flex;
-// margin: 20% 0;
-// `;
-
 // USER PAGE STYLING //
 
 const MainDiv = styled.div`
-background-color: #ffbf80;
-padding: 3% 0;
+background-image: url('https://www.thespruce.com/thmb/2N2dQuQ3uO9udPWIwmowg_XJRJs=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/overhead-smiling-neighbors-around-potluck-table-sunny-park-576799253-59934633aad52b0011e7cfd5.jpg');
+padding: 1% 0;
+background-size: cover;
 `;
 
-const HeaderDiv = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin-bottom: 2%;
-height: 100px;
-background: black;
+const HeaderDiv = styled.header`
+background-color: #ffbf80;
 `;
 
 const LogoutButton = styled.button`
 padding: 0.5em;
-margin: 2.5% 2.5%;
 height: fit-content;
 background: white;
 color: black;
 border-radius: 10px;
+:hover{
+    color: #ffbf80;
+    border-color: #ffbf80;
+}
 `;
 
 const UserImg = styled.img`
@@ -59,13 +29,10 @@ width: 20%;
 `;
 
 const UserDiv = styled.div`
-display: flex;
-justify-content: space-between;
-margin: 0;
-padding-right: 21%;
-padding-left: 20%;
-padding-bottom: 3%;
-background: white;
+background-color: #ffbf80;
+margin: 5%;
+border: 2px solid silver;
+border-radius: 5px;
 `;
 
 const UserText = styled.div`
@@ -74,24 +41,33 @@ background: white;
 `;
 
 const ButtonDiv = styled.div`
-padding-right: 12%;
-padding-left: 12%;
 display: flex;
 flex-direction: row;
-justify-content: space-around;
-background-color: white;
+justify-content: space-evenly;
+background-color: #ffbf80;
 `;
 
 const Button = styled.button`
-padding: 0.5em;
-height: fit-content;
-margin-top: 3%;
+padding: 5px;
+border-radius: 5px;
 background: white;
 color: black;
-border-radius: 10px;
-:hover{
-    color: #ffbf80;
-    border-color: #ffbf80;
+text-decoration: none;
+&:hover {
+color: #ffbf80;
+}
+`;
+
+const PotluckButton = styled.button`
+padding: 5px;
+margin-top: 2%;
+border-radius: 5px;
+height: fit-content;
+background: white;
+color: black;
+text-decoration: none;
+&:hover {
+color: #ffbf80;
 }
 `;
 
@@ -107,10 +83,11 @@ const EventsContainer = styled.div`
     display:flex;
     flex-direction:column;
     border: 2px solid silver;
-    width:85%;
+    width:65%;
     margin:2rem auto;
     padding-left: 2rem;
     border-radius:10px;
+    background-color: white;
 `
 
 const EventDiv = styled.div`
@@ -151,5 +128,16 @@ justify-content: center;
 padding: 2%;
 `;
 
-export {EventsContainer, EventDiv,HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv, MessageDiv, ContactDiv, ContactLabel, MessageButtons};
+const NavLink = styled(Button)`
+padding: 5px;
+border-radius: 5px;
+background: white;
+color: black;
+text-decoration: none;
+&:hover {
+color: #ffbf80;
+}
+`;
+
+export {EventsContainer, EventDiv, HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv, MessageDiv, ContactDiv, ContactLabel, MessageButtons, NavLink, PotluckButton};
 
