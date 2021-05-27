@@ -65,7 +65,7 @@ export default function SignUp() {
             push("/login");
         })
         .catch(error=>{
-            alert("Username is already been used, try with another one");
+            alert(error.response.data.message);
         })
 
     }

@@ -5,6 +5,8 @@ export const LOG_OUT = "LOG_OUT";
 export const LOAD_EVENTS = "LOAD_EVENTS";
 export const RESTORE_DATA = "RESTORE_DATA";
 export const CREATING_NEW_EVENT = "CREATING_NEW_EVENT";
+export const EDIT_EVENT = "EDIT_EVENT";
+export const DONE_EDIT_EVENT = "DONE_EDIT_EVENT";
 
 export const restoreData = (backup)=>{
     return {type:RESTORE_DATA, payload: backup}
@@ -41,7 +43,13 @@ export const addEvent = (event) =>{
     }
 }
 
+export const editEvent = (event)=>{
+    return {type:EDIT_EVENT, payload: event}
+}
 
+export const finishEditEvent = ()=>{
+    return {type:DONE_EDIT_EVENT}
+}
 
 export const reset = e=>{
     return {type:LOG_OUT};

@@ -56,9 +56,13 @@ const UserPage = (props)=>{
                 <PotluckButton>Edit Potluck</PotluckButton>
                 </ButtonDiv>
             </UserDiv>
-            
-            {props.state.events.length!==0 && <PotluckList/>}
-            
+          
+            <ButtonDiv>
+                <Button onClick={()=>props.history.push("/protected/create")}>Create Potluck</Button>
+                <Button onClick={()=>props.history.push("/protected/user-events")}>Edit Potluck</Button>
+            </ButtonDiv>
+            {props.state.events.length!==0 && <PotluckList events={props.state.events} all={true}/>}
+
         </MainDiv>
     )
 }
