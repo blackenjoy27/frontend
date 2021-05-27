@@ -1,5 +1,5 @@
 import React from "react";
-import Contact from "./Contact";
+
 import Footer from "./Footer";
 import styled from 'styled-components'
 import {Link, useHistory} from "react-router-dom";
@@ -50,7 +50,7 @@ const HomePage = ()=>{
                 
             </MainDiv>
             
-            <Contact/>
+            
             <Footer/>
         </BgDiv>
         

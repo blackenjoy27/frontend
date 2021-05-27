@@ -5,7 +5,11 @@ import styled from 'styled-components';
 const MainDiv = styled.div`
 background-image: url('https://www.thespruce.com/thmb/2N2dQuQ3uO9udPWIwmowg_XJRJs=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/overhead-smiling-neighbors-around-potluck-table-sunny-park-576799253-59934633aad52b0011e7cfd5.jpg');
 padding: 1% 0;
-background-size: cover;
+background-size:cover;
+background-position:top;
+background-attachment:fixed;
+background-repeat: no-repeat;
+
 `;
 
 const HeaderDiv = styled.header`

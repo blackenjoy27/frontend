@@ -2,13 +2,13 @@ import React from "react";
 import FoodToAdd from "./FoodToAdd";
 
 const FoodList = (props)=>{
-    const {foods, setFoods} = props;
+    const {foods} = props;
     return(
         <div>
             {foods.map(food=>{
                 return <FoodToAdd key={foods.indexOf(food)} 
-                name={food} foods={foods} setFoods={setFoods}
-                index={foods.indexOf(food)}/>
+                name={food} 
+                />
             })}
         </div>
     )

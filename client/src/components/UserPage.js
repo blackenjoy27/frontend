@@ -10,7 +10,7 @@ import {connect} from "react-redux";
 
 
 const UserPage = (props)=>{
-    console.log(props);
+    
     const {push} = useHistory();
 
     useEffect(()=>{
@@ -53,14 +53,12 @@ const UserPage = (props)=>{
                 <ButtonDiv>
                 <h2>Username</h2>
                 <PotluckButton onClick={()=>props.history.push("/protected/create")}>Create Potluck</PotluckButton>
-                <PotluckButton>Edit Potluck</PotluckButton>
+                <PotluckButton onClick={()=>props.history.push("/protected/user-events")}>Edit Potluck</PotluckButton>
+                {/* <PotluckButton onClick={()=>props.history.push("/protected/create")}>Create Potluck</PotluckButton>
+                <PotluckButton>Edit Potluck</PotluckButton> */}
                 </ButtonDiv>
             </UserDiv>
-          
-            <ButtonDiv>
-                <Button onClick={()=>props.history.push("/protected/create")}>Create Potluck</Button>
-                <Button onClick={()=>props.history.push("/protected/user-events")}>Edit Potluck</Button>
-            </ButtonDiv>
+ 
             {props.state.events.length!==0 && <PotluckList events={props.state.events} all={true}/>}
 
         </MainDiv>
