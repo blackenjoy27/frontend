@@ -102,6 +102,7 @@ justify-content: center;
 background: white;
 `;
 
+
 const EventsContainer = styled.div`
     display:flex;
     flex-direction:column;
@@ -126,6 +127,29 @@ const EventDiv = styled.div`
         margin:0.5rem;
     }
 `
+const MessageDiv = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding: 2%;
+`;
 
-// export {LoginButton, IntroDiv, Label, LabelDiv};
-export {EventsContainer, EventDiv, HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv};
+const ContactDiv = styled.div`
+display: flex;
+flex-direction: row;
+padding: 2%;
+`;
+
+const ContactLabel = styled.label`
+padding-left: 2%;
+`;
+
+const MessageButtons = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+padding: 2%;
+`;
+
+export {EventsContainer, EventDiv,HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv, MessageDiv, ContactDiv, ContactLabel, MessageButtons};
+

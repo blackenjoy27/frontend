@@ -1,46 +1,58 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import {Link, useHistory} from "react-router-dom";
-
 import {login} from "../actions";
 import {connect} from "react-redux";
 import {axiosWithAuth} from "../helps/axiosWithAuth";
-
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 const initialUserValue = {
     username:"",
     password:""
 }
 
-const FormDiv = styled.div`
-    
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin:4rem auto;
-    border: 2px solid silver;
-    width:50%;
-    padding-top:2rem;
-    padding-bottom:4rem;
-    border-radius:5px;
-    
-
-`
-
-const LoginForm = styled.form`
-    display:flex;
-    flex-direction:column;
-    margin:2rem auto;
-    
-
-    input{
-        margin-bottom:1rem;
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main
+    },
+    form: {
+      width: "100%",
+      marginTop: theme.spacing(3)
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2)
     }
+  }));
+
+const FormContainer = styled.div`
+    background-image: url('https://www.safeway.ca/wp-content/uploads/2019/10/Quick-Tips-for-Hosting-a-Potluck.jpg');
+    background-repeat: no-repeat;
+    background-position: top; 
+    background-attachment: fixed;
+    background-size: cover;
+    color: #4f4f4f;
+    padding: 20%;
 `
 
 const Login = (props)=>{
     const [user, setUser] = useState(initialUserValue);
     const {push} = useHistory();
+    const classes = useStyles();
 
     const updateLoginForm = e => {
         setUser({
@@ -76,37 +88,66 @@ const Login = (props)=>{
     }
 
     return(
-        <div>
-            <header>
-                <a className="logo">
-                    <strong>Forty</strong>
-                    <span>by HTML5 UP</span>
-                </a>
-                <Link to="/">Home</Link>
-                <Link to="/sign-up">Sign Up</Link>
-            </header>
-            <FormDiv>
-                <h1>Welcome Back</h1>
-                <LoginForm onSubmit={submit}>
-                    <input
-                        name="username"
-                        value={user.username}
-                        placeholder="Username"
-                        onChange={updateLoginForm}
-                    />
-                    <input
-                        name="password"
-                        value={user.password}
-                        placeholder="Password"
-                        onChange={updateLoginForm}
-                    />
-                    <button>Login</button>
-                </LoginForm>
-            </FormDiv>
-        </div>
+        <FormContainer>
+            <Container component="main" maxWidth="xs" style={{backgroundColor: 'white', paddingTop: '.1rem', paddingBottom: '3%', paddingLeft: '3%', paddingRight: '3%', borderRadius: '3%'}}>
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <LockOpenIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Welcome Back
+                    </Typography>
+                    <form className={classes.form} onSubmit={submit}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    name="username"
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    onChange={updateLoginForm}
+                                    id="username"
+                                    label="Username"
+                                    autoFocus
+                                    value = {user.username}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    name="password"
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    id="password"
+                                    type="password"
+                                    label="Password"
+                                    onChange={updateLoginForm}
+                                    value = {user.password}
+                                />
+                            </Grid>
+                        </Grid>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}>
+                            Sign In
+                        </Button>
+                        <Grid container justify="flex-end">
+                            <Grid item>
+                            <Link to="/sign-up" variant="body3">
+                                Don't have an account? Sign up
+                            </Link>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
+            </Container>
+        </FormContainer>
     )
 }
-
 
 export default connect(state=>{
     return {

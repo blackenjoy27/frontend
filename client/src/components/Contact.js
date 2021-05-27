@@ -1,4 +1,5 @@
 import React from "react";
+import {MessageDiv, ContactDiv, ContactLabel, MessageButtons} from './StyledComponents';
 
 const initialFormValue = {
     name:"",
@@ -25,33 +26,43 @@ class Contact extends React.Component{
     render(){
         return(
             <section>
-                <div>
+                <MessageDiv>
                         <form onSubmit={this.submitForm}>
-                            <label>NAME
+                            <div>
+                                    
+                            <ContactLabel>NAME</ContactLabel>
+                            <ContactDiv>
                                 <input
                                     name="name"
                                     value={this.state.name}
                                     onChange={this.updateFormValue}
                                 />
-                            </label>
-                            <label>EMAIL
+                                </ContactDiv>
+                            <ContactLabel>EMAIL</ContactLabel>
+                            <ContactDiv>
                                 <input
                                     name="email"
                                     value={this.state.email}
                                     onChange={this.updateFormValue}
                                 />
-                            </label>
-                            <label>MESSAGE
-                                <input
+                                </ContactDiv>
+                            <ContactLabel>MESSAGE</ContactLabel>
+                            <ContactDiv>
+                                <textarea
                                     name="message"
+                                    rows="4"
                                     value={this.state.message}
                                     onChange={this.updateFormValue}
                                 />
-                            </label>
+                                </ContactDiv>
+                            <MessageButtons>
                             <button type="submit">SEND MESSAGE</button>
                             <button>CLEAR</button>
+                            </MessageButtons>
+                            
+                            </div>
                         </form>
-                </div>
+                </MessageDiv>
             </section>
         )
 
