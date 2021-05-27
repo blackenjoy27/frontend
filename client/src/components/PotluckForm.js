@@ -14,7 +14,17 @@ import schema from './validation/Schema'
 import {finishEditEvent,addEvent, getEvents} from "../actions";
 import { axiosWithAuth } from '../helps/axiosWithAuth';
 
+import styled from "styled-components";
 
+const FormContainer = styled.div`
+    background-image: url('https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg');
+    background-repeat: no-repeat;
+    background-position: top; 
+    background-attachment: fixed;
+    background-size: cover;
+    color: #4f4f4f;
+    padding: 20%;
+`
 
 const initialFormValues = {
     event_name: 'Poker',
@@ -150,11 +160,14 @@ const PotluckForm = (props) => {
 
   return (
     <div>
-      <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-              
-              <Typography component="h1" variant="h5">
+
+    
+      <FormContainer>
+        <Container component="main" maxWidth="xs" style={{backgroundColor: 'white', paddingTop: '.1rem', paddingBottom: '3%', paddingLeft: '3%', paddingRight: '3%', borderRadius: '3%'}}>
+              <CssBaseline />
+              <div className={classes.paper}>
+                
+                <Typography component="h1" variant="h5">
                 {props.event ? "Edit The Potluck":"Create Your Own Potluck!"}
               </Typography>
               <form className={classes.form} onSubmit={formSubmit}>
@@ -221,49 +234,49 @@ const PotluckForm = (props) => {
                       
                     />
                   </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      
-                      variant="outlined"
-                      required
-                      fullWidth
-                      label="Street Address"
-                      type="address"
-                      id="streetAddress"
-                      name='street_address'
-                      placeholder='Address'
-                      value={formValues.street_address}
-                      onChange={inputChange}
-                    />
+                    <Grid item xs={12}>
+                      <TextField
+                        
+                        variant="outlined"
+                        required
+                        fullWidth
+                        label="Street Address"
+                        type="address"
+                        id="streetAddress"
+                        name='street_address'
+                        placeholder='Address'
+                        value={formValues.street_address}
+                        onChange={inputChange}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        name="zip"
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="zip"
+                        label="Zip Code"
+                        autoFocus
+                        value={formValues.zip}
+                        onChange={inputChange}
+                        
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        label="Max Attendees"
+                        autoFocus
+                        name='max_attendee'
+                        value={formValues.max_attendee}
+                        onChange={inputChange}
+                      />
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      name="zip"
-                      variant="outlined"
-                      required
-                      fullWidth
-                      id="zip"
-                      label="Zip Code"
-                      autoFocus
-                      value={formValues.zip}
-                      onChange={inputChange}
-                      
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      variant="outlined"
-                      required
-                      fullWidth
-                      label="Max Attendees"
-                      autoFocus
-                      name='max_attendee'
-                      value={formValues.max_attendee}
-                      onChange={inputChange}
-                    />
-                  </Grid>
-                </Grid>
-                
+                  
                 <Button
                   type="submit"
                   fullWidth
@@ -274,7 +287,7 @@ const PotluckForm = (props) => {
                 >
                 {props.event ? "Make Change":"Create Potluck"}
                 </Button>
-                <Button
+               <Button
                   fullWidth
                   variant="contained"
                   color="neutral"
@@ -282,11 +295,13 @@ const PotluckForm = (props) => {
                 >
                   Cancel
                 </Button>
-                <Grid container justify="flex-end">
+                  <Grid container justify="flex-end">
                 </Grid>
               </form>
             </div>
           </Container>
+
+          </FormContainer>
     </div>
     
   );

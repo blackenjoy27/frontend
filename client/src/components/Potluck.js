@@ -1,5 +1,5 @@
 import React from "react";
-import {EventDiv} from "./StyledComponents";
+import {EventDiv, Button} from "./StyledComponents";
 
 const Potluck = (props)=>{
     const {event, push, all, cancelEvent, edit} = props;
@@ -20,6 +20,7 @@ const Potluck = (props)=>{
                 <h1>{event.event_name}</h1>
                 <button onClick={()=>edit(event)}>Edit</button>
                 <button onClick={()=>cancelEvent(event.event_id)}>Cancel Event</button>
+
             </EventDiv>
         </div>
     )
