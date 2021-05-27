@@ -102,5 +102,30 @@ justify-content: center;
 background: white;
 `;
 
+const EventsContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    border: 2px solid silver;
+    width:85%;
+    margin:2rem auto;
+    padding-left: 2rem;
+    border-radius:10px;
+`
+
+const EventDiv = styled.div`
+    display:flex;
+    flex-direction:row;
+    border: 2px solid silver;
+    width:85%;
+    margin:1rem;
+    padding-left: 2rem;
+    border-radius:10px;
+    justify-content: space-between;
+
+    button{
+        margin:0.5rem;
+    }
+`
+
 // export {LoginButton, IntroDiv, Label, LabelDiv};
-export {HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv};
+export {EventsContainer, EventDiv, HeaderDiv, MainDiv, LogoutButton, Button, ButtonDiv, UserImg, UserDiv, UserText, FormDiv};

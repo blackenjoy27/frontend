@@ -1,8 +1,9 @@
-import {LOGIN, ADD_EVENT, LOG_OUT, LOAD_EVENTS, RESTORE_DATA} from "../actions";
+import {LOGIN, ADD_EVENT, LOG_OUT, LOAD_EVENTS, RESTORE_DATA,CREATING_NEW_EVENT} from "../actions";
 
 const initialState = {
     user_id: null,
-    events:[]
+    events:[],
+    newEventId: null
 }
 
 const reducer = (state = initialState, action)=>{
@@ -17,6 +18,12 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 events: [...state.events, action.payload]
             }
+        case CREATING_NEW_EVENT:
+            return{
+                ...state,
+                newEventId: action.payload
+            }
+
         case LOAD_EVENTS:
             return{
                 ...state,

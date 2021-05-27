@@ -1,10 +1,10 @@
-
 import {axiosWithAuth} from "../helps/axiosWithAuth";
 export const LOGIN = "LOGIN";
 export const ADD_EVENT = "ADD_EVENT";
 export const LOG_OUT = "LOG_OUT";
 export const LOAD_EVENTS = "LOAD_EVENTS";
 export const RESTORE_DATA = "RESTORE_DATA";
+export const CREATING_NEW_EVENT = "CREATING_NEW_EVENT";
 
 export const restoreData = (backup)=>{
     return {type:RESTORE_DATA, payload: backup}
@@ -32,7 +32,8 @@ export const addEvent = (event) =>{
     return (dispatch)=>{
         axiosWithAuth().post("/api/events", event)
         .then(res=>{
-            console.log(res.data);
+            dispatch({type: ADD_EVENT, payload:res.data});
+            dispatch({type:CREATING_NEW_EVENT, payload: res.data.event_id});
         })
         .catch(error=>{
             console.log(error);
