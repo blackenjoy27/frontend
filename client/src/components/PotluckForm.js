@@ -149,9 +149,6 @@ const PotluckForm = (props) => {
 
 
   return (
-    <div>
-
-    
       <FormContainer>
         <Container component="main" maxWidth="xs" style={{backgroundColor: 'white', paddingTop: '.1rem', paddingBottom: '3%', paddingLeft: '3%', paddingRight: '3%', borderRadius: '3%'}}>
               <CssBaseline />
@@ -292,8 +289,6 @@ const PotluckForm = (props) => {
           </Container>
 
           </FormContainer>
-    </div>
-    
   );
 }
 
