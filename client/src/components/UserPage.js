@@ -1,17 +1,12 @@
-
-import React, { useEffect } from "react";
-import PrivateRoute from "../components/PrivateRoute";
+import React, { useEffect} from "react";
 import PotluckList from "./PotluckList";
-// import PotluckForm from "./PotluckForm";
-import {useHistory} from "react-router-dom";
-import {MainDiv, HeaderDiv, LogoutButton, Button, ButtonDiv, UserDiv, UserText, EventsDiv, UserImg, PotluckButton} from './StyledComponents';
+import {MainDiv, ButtonDiv, UserDiv, PotluckButton} from './StyledComponents';
 import {reset,restoreData} from "../actions";
 import {connect} from "react-redux";
 
 
 const UserPage = (props)=>{
-    
-    const {push} = useHistory();
+
 
     useEffect(()=>{
         const userData = localStorage.getItem("user-data");
@@ -42,20 +37,13 @@ const UserPage = (props)=>{
         <MainDiv>
 
             <UserDiv>
-            <HeaderDiv>
-                <a className="logo">
-                    <strong>Forty</strong>
-                    <span>by HTML5 UP</span>
-                </a>
-                <Button onClick={logout}>Log Out</Button>
-                
-            </HeaderDiv>
+            
                 <ButtonDiv>
-                <h2>Username</h2>
+                <h2>{props.state.username}</h2>
                 <PotluckButton onClick={()=>props.history.push("/protected/create")}>Create Potluck</PotluckButton>
                 <PotluckButton onClick={()=>props.history.push("/protected/user-events")}>Edit Potluck</PotluckButton>
-                {/* <PotluckButton onClick={()=>props.history.push("/protected/create")}>Create Potluck</PotluckButton>
-                <PotluckButton>Edit Potluck</PotluckButton> */}
+                <PotluckButton onClick={logout}>Log Out</PotluckButton>
+                
                 </ButtonDiv>
             </UserDiv>
  

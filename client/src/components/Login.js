@@ -71,13 +71,13 @@ const Login = (props)=>{
         axiosWithAuth().post("/api/auth/login", user)
         .then(res1=>{
             localStorage.setItem("token", res1.data.token);
-            return res1.data.user_id;
+            return res1.data;
         })
         .then((res1)=>{
             axiosWithAuth().get('/api/events/getall')
             .then(res2 =>{
                 const {data} = res2;
-                props.dispatch(login(res1, data));
+                props.dispatch(login(res1.user_id, data, res1.username));
                 push('/protected')
             })
         })

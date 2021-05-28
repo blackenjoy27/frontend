@@ -12,9 +12,9 @@ export const restoreData = (backup)=>{
     return {type:RESTORE_DATA, payload: backup}
 }
 
-export const login = (id,events) => {
+export const login = (id,events,username) => {
     return(dispatch) => {
-       dispatch({type:LOGIN, payload:id});
+       dispatch({type:LOGIN, payload:id, userName: username});
        dispatch({type:LOAD_EVENTS, payload: events});
     }
 }
