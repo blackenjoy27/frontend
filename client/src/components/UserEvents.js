@@ -6,9 +6,8 @@ import {Link, useHistory} from "react-router-dom";
 
 import styled from 'styled-components'
 import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
+
 
 import Grid from "@material-ui/core/Grid";
 import EditIcon from '@material-ui/icons/Edit';
@@ -93,30 +92,6 @@ const UserEvents = (props)=>{
         </FormContainer>
     )
 }
-
-// const UserEvents = (props)=>{
-//     const [userEvents, setUserEvents] = useState(null);
-//     const {push} = useHistory();
-
-//     useEffect(()=>{
-//         if(props.id){
-//             axiosWithAuth().get(`/api/events/${props.id}/user`)
-//             .then(res=>{
-//                 setUserEvents(res.data);
-//             })
-//         }
-//         else{
-//             props.history.push("/protected")
-//         }
-//     },[props.data])
-//     return(
-//         <div>
-//             <h1>Events</h1>
-//             {userEvents && <PotluckList events={userEvents} all={false}/>}
-//             <button onClick={()=>push("/protected")}>Go Back</button>
-//         </div>
-//     )
-// }
 
 export default connect(state=>{
     return{

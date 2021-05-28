@@ -26,18 +26,9 @@ const FormContainer = styled.div`
     padding: 20%;
 `
 
-const initialFormValues = {
-    event_name: 'Poker',
-    date: "12-12-21",
-    time: "12:00",
-    state: 'NY',
-    city: 'Queen',
-    street_address: '40-35 Sanford',
-    zip: "11445",
-    max_attendee: "10",
-}
 
-const test = {
+
+const initialFormValues = {
   event_name: '',
   date: "",
   time: "",
@@ -59,7 +50,6 @@ const initialFormErrors = {
     max_attendee: '',
 }
 
-const initialDisabled = true
 
 const useStyles = makeStyles((theme) => ({
   paper: {
