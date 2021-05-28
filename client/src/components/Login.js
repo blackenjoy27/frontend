@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const FormContainer = styled.div`
-    background-image: url('https://www.safeway.ca/wp-content/uploads/2019/10/Quick-Tips-for-Hosting-a-Potluck.jpg');
+    background-image: url('https://i.ibb.co/TYmYzY4/Quick-Tips-for-Hosting-a-Potluck.jpg');
     background-repeat: no-repeat;
     background-position: top; 
     background-attachment: fixed;

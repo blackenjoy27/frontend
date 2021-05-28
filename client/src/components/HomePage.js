@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 import disableScroll from 'disable-scroll'
 import styled from "styled-components";
 import { withStyles } from '@material-ui/core/styles';
 import './font.css'
 import Fab from '@material-ui/core/Fab';
-disableScroll.on()
+
+
+
+
 
 const Main = styled.div`
     background-image: url('https://i.ibb.co/8chJYXT/http-www-pdf-tools-com.jpg');
@@ -20,18 +25,37 @@ const styles = theme => ({
     },
 });
 
-function homepage(props) {
+
+
+const Homepage = (props) => {
+    console.log(window.location.pathname)
+    useEffect(()=>{
+        if(window.location.pathname === "/"){
+            disableScroll.on()
+        }
+    },[])
+    
+    const { push } = useHistory();
+    const enableScrollSignup = ()=>{
+        disableScroll.off()
+        push('/sign-up')
+    }
+    const enableScrollLogin = ()=>{
+        disableScroll.off()
+        push('/login')
+    }
+
     const { classes } = props;
     return (
         <Main>
             <h1 className="font-link">The best potluck planner <br />PERIOD.</h1>
             <div className='buton'>
-                <Fab variant="extended" className={classes.fab}> login </Fab>
-                <Fab variant="extended" className={classes.fab}> signup </Fab>
+                <Fab variant="extended" className={classes.fab} onClick={() => enableScrollLogin() }> login </Fab>
+                <Fab variant="extended" className={classes.fab} onClick={() => enableScrollSignup()}> signup </Fab>
                 <Fab variant="extended" className={classes.fab}> credit </Fab>
             </div>
         </Main>
     )
 }
 
-export default withStyles(styles)(homepage);
+export default withStyles(styles)(Homepage);
