@@ -22,9 +22,9 @@ function App() {
             <PrivateRoute exact path="/protected/add-foods" component={FoodsForm} />
             <PrivateRoute exact path="/protected/user-events" component={UserEvents}/>
              
-            <Route exact path="/login">
-              <Login/>
-            </Route>
+            <Route exact path="/login" component={Login}/>
+              {/* <Login/>
+            </Route> */}
             <Route exact path="/sign-up">
               <SignUp/>
             </Route>

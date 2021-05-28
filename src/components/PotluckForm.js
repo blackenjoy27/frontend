@@ -78,10 +78,10 @@ const PotluckForm = (props) => {
 
     
     useEffect(()=>{
-      if(props.event){
-        setFormValues(props.event);
-      }
-    },[])
+        if(props.event){
+          setFormValues(props.event);
+        }
+    },[props.event])
 
     const validate = e => {
         const value = e.target.value;

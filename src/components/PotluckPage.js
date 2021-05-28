@@ -47,11 +47,20 @@ const PotluckPage = (props)=>{
     const [potluck, setPotluck] = useState(null);
 
     useEffect(()=>{
+        // axiosWithAuth().get(`/api/events/${id}/event`)
+        // .then(res=>{
+        //     setPotluck(res.data);
+        // })
+        test();
+
+    },[props.state])
+
+    const test = ()=>{
         axiosWithAuth().get(`/api/events/${id}/event`)
         .then(res=>{
             setPotluck(res.data);
         })
-    },[props.state])
+    }
 
     return(
         <FormContainer>
