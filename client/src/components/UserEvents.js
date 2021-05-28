@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const FormContainer = styled.div`
-    background-image: url('https://static01.nyt.com/images/2017/06/28/dining/28POTLUCK1/28POTLUCK1-superJumbo-v2.jpg');
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3drUelTdSX0nq3YTziMEf-QvCHYGpclGWHOKrZ4Qi5uRsMWxHt9qXFBmomIYOV2PYYFrssA8ZCrl48RyQkHhgAMcuByq4Be4SkqSCscpFBGhPKkhNsWWkz_q7n0ad5WXxUL4iuIQujgzD0xhFi17WuFxQ=w2048-h1400-no?authuser=0');
     background-repeat: no-repeat;
     background-position: top; 
     background-attachment: fixed;

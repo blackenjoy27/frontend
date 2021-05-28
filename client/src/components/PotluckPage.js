@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const FormContainer = styled.div`
-    background-image: url('https://www.makeitgrateful.com/wp-content/uploads/2018/08/potluck-dinner-table.jpg');
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3datlkm4EXvY5st9jCe5XA3H2LfCbMdZP4RWRk0IawTsVzUnCGnPLMK9ZqtL33htbxvO55xDLkAFcM4dyW08iXbolnNnqaDeHh9Lhlhu76RxRVT16-sXQb-56DVEWlzROaN5tsQw-LIZKiM9_L5_2F2AQ=w2400-h1210-no?authuser=0');
     background-repeat: no-repeat;
     background-position: top; 
     background-attachment: fixed;
