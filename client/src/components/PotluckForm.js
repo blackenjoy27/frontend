@@ -242,6 +242,7 @@ const PotluckForm = (props) => {
                         variant="outlined"
                         required
                         fullWidth
+                        type="number"
                         id="zip"
                         label="Zip Code"
                         autoFocus
@@ -253,6 +254,7 @@ const PotluckForm = (props) => {
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
+                        type="number"
                         required
                         fullWidth
                         label="Max Attendees"
