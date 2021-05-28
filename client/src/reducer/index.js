@@ -4,7 +4,8 @@ const initialState = {
     user_id: null,
     events:[],
     newEventId: null,
-    editingEvent: null
+    editingEvent: null,
+    username:""
 }
 
 const reducer = (state = initialState, action)=>{
@@ -12,7 +13,8 @@ const reducer = (state = initialState, action)=>{
         case LOGIN:
             return {
                 ...state,
-                user_id: action.payload
+                user_id: action.payload,
+                username: action.userName
             }
         case ADD_EVENT:
             return {

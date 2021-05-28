@@ -24,10 +24,7 @@ const HomePage = ()=>{
     return(
         <BgDiv>
             <header>
-                <a className="logo">
-                    <strong>Forty</strong>
-                    <span>by HTML5 UP</span>
-                </a>
+                
                 <Link onClick={checkStillLogin} className="sign-up-btn">
                     <NavLink variant="outline-light" size="lg" color="white">
                         Sign In
@@ -36,11 +33,9 @@ const HomePage = ()=>{
                 
             </header>
             <MainDiv>
-                <h1>Welcome to the Potluck Planner!</h1>
+                
                 <Paragraph>
-                If you have ever tried to organize a potluck through text messages, online to-do lists or spreadsheets, you'll understand why this app is essential. 
-
-                In the world of social gatherings and potlucks the "Potluck Planner" is king. This is your place for all things pot luck.
+                <h1>Welcome to the Potluck Planner!</h1>
                 </Paragraph>
                 <Link className="sign-up-btn" to="/sign-up">
                     <NavLink variant="outline-light" size="lg" color="white">

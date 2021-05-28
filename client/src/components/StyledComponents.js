@@ -37,6 +37,8 @@ background-color: #ffbf80;
 margin: 5%;
 border: 2px solid silver;
 border-radius: 5px;
+margin-left:16%;
+width:68%;
 `;
 
 const UserText = styled.div`
@@ -49,6 +51,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-evenly;
 background-color: #ffbf80;
+align-items: center;
 `;
 
 const Button = styled.button`
