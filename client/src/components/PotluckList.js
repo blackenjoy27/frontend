@@ -17,6 +17,7 @@ const PotluckList = (props) =>{
     const cancelEvent = (id)=>{
         axiosWithAuth().delete(`/api/events/${id}`)
         .then(res=>{
+            console.log("reach");
             props.dispatch(getEvents());
         })
     }

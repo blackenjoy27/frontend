@@ -50,7 +50,6 @@ const PotluckPage = (props)=>{
         axiosWithAuth().get(`/api/events/${id}/event`)
         .then(res=>{
             setPotluck(res.data);
-            console.log(res.data);
         })
     },[props.state])
 
