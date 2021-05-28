@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const FormContainer = styled.div`
-    background-image: url('https://i.ibb.co/TYmYzY4/Quick-Tips-for-Hosting-a-Potluck.jpg');
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3e2b353m9UteXFPdRkobTkBg5uNlp26ix2X2jSOa5m6nwv8cm0edn-S1OFV2BBkgMzlZkp9cSayTuc6eryyurK0D4RMikKkYoGhllesx0dc0l9wYfFBRGw7I_gcwShStVDgQiOHsON9B8XIAuCCgBEpMg=w1260-h600-no?authuser=0');
     background-repeat: no-repeat;
     background-position: top; 
     background-attachment: fixed;

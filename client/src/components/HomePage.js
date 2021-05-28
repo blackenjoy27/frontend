@@ -12,7 +12,7 @@ import Fab from '@material-ui/core/Fab';
 
 
 const Main = styled.div`
-    background-image: url('https://i.ibb.co/8chJYXT/http-www-pdf-tools-com.jpg');
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3d9SgUYS7uJsTrvrbbOhCNa5azEP8OU6jw5pJ7mXc7kfle3cMMXE_LTQgKYQpFAm47qenvq2NAp1dojc9ZY1VuY2IHh1l21qvoupXDS8GIJhkXjL7KnqS3-epRBniavwQdSbANDLMu7MJ0ZVA3JmYDDGg=w2700-h1800-no?authuser=0');
     background-attachment: fixed;
     background-size: cover;
     color: #4f4f4f;
@@ -29,18 +29,18 @@ const styles = theme => ({
 
 const Homepage = (props) => {
     console.log(window.location.pathname)
-    useEffect(()=>{
-        if(window.location.pathname === "/"){
+    useEffect(() => {
+        if (window.location.pathname === "/") {
             disableScroll.on()
         }
-    },[])
-    
+    }, [])
+
     const { push } = useHistory();
-    const enableScrollSignup = ()=>{
+    const enableScrollSignup = () => {
         disableScroll.off()
         push('/sign-up')
     }
-    const enableScrollLogin = ()=>{
+    const enableScrollLogin = () => {
         disableScroll.off()
         push('/login')
     }
@@ -50,9 +50,9 @@ const Homepage = (props) => {
         <Main>
             <h1 className="font-link">The best potluck planner <br />PERIOD.</h1>
             <div className='buton'>
-                <Fab variant="extended" className={classes.fab} onClick={() => enableScrollLogin() }> login </Fab>
+                <Fab variant="extended" className={classes.fab} onClick={() => enableScrollLogin()}> login </Fab>
                 <Fab variant="extended" className={classes.fab} onClick={() => enableScrollSignup()}> signup </Fab>
-                <Fab variant="extended" className={classes.fab}> credit </Fab>
+                <Fab variant="extended" className={classes.fab} onClick={() => window.location.href = "https://github.com/7lambda"}> Github</Fab>
             </div>
         </Main>
     )
