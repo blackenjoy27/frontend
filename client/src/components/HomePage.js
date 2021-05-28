@@ -1,9 +1,9 @@
 import React from "react";
-
 import Footer from "./Footer";
 import styled from 'styled-components'
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import ButtonTp from "@material-ui/core/Button";
 
 
 
@@ -22,65 +22,74 @@ const HomePage = ()=>{
     }
     
     return(
-        <BgDiv>
-            <header>
-                
-                <Link onClick={checkStillLogin} className="sign-up-btn">
-                    <NavLink variant="outline-light" size="lg" color="white">
-                        Sign In
-                    </NavLink>
-                </Link>
-                
-            </header>
-            <MainDiv>
-                
-                <Paragraph>
-                <h1>Welcome to the Potluck Planner!</h1>
-                </Paragraph>
-                <Link className="sign-up-btn" to="/sign-up">
-                    <NavLink variant="outline-light" size="lg" color="white">
+        <BodyDiv>
+            <Header>
+                <h1>Potluck Planner</h1>
+                <NavBar>
+                    <ButtonTp
+                        variant="contained"
+                        color="neutral"
+                        onClick={()=>push("/sign-up")}
+                        >
                         Sign Up
-                    </NavLink>
-                </Link>  
-                
-            </MainDiv>
-            
-            
+                    </ButtonTp>
+                    <ButtonTp
+                        variant="contained"
+                        color="primary"
+                        onClick={checkStillLogin}
+                        >
+                        Sign In
+                    </ButtonTp>
+   
+                </NavBar>
+            </Header>
+            <IntroductionDiv>
+                <h1>Happiness is eating food with friends</h1>
+            </IntroductionDiv>
             <Footer/>
-        </BgDiv>
-        
-
+        </BodyDiv>
     )
 }
-
-
 export default HomePage;
 
-const MainDiv = styled.div`
-background-image: url('https://images.unsplash.com/photo-1617201835175-aab7b1d71d87?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1265&q=80');
-background-repeat: no-repeat;
-background-position: bottom; 
-background-size: cover;
-color: white;
-padding-left: 15%;
-padding-right: 5%;
-padding-top: 5%;
-padding-bottom: 15%;
+const BodyDiv = styled.div`
+    background-color:#e1e5ea;
+    height:100%;
 `
 
-const BgDiv = styled.div`
-background-color: #ffbf80;
-padding: 1% 0;
+const Header = styled.header`
+    display:flex;
+    width:100%;
+    background-color: #fff5b7;
+
+    h1{
+        width:50%;
+    }
+
+`
+const NavBar = styled.nav`
+    display:flex;
+    align-items:center;
+    width:30%;
+    justify-content: space-evenly;
+
+    button{
+        width:35%;
+        height:2rem;
+    }
+`
+const IntroductionDiv = styled.div`
+    width:70%;
+    margin: 3rem auto 2rem;
+    border:2px solid silver;
+    display:flex;
+    justify-content:center;
+    padding:4rem;
+    border-radius:10px;
 `
 
-const Paragraph = styled.p`
-background-color: white;
-opacity: 0.7; 
-color: black;
-margin: 3% 5% 10%;
-padding: 5%;
-border-radius: 50%;
-`
+
+
 const NavLink = styled(Button)`
 padding: 5px;
 border-radius: 5px;
@@ -92,13 +101,4 @@ color: #ffbf80;
 }
 `;
 
-const H3 = styled.div`
-color: black;
-border: 3px solid white;
-width: 12%; 
-padding: 0.5%;
-background-color: white;
-text-align: center;
-text-decoration: none;
-`
 export {NavLink};

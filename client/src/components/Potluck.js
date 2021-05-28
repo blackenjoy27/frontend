@@ -18,9 +18,8 @@ const Potluck = (props)=>{
         <div>
             <EventDiv>
                 <h1>{event.event_name}</h1>
-                <button onClick={()=>edit(event)}>Edit</button>
-                <button onClick={()=>cancelEvent(event.event_id)}>Cancel Event</button>
-
+                <Button onClick={()=>edit(event)}>Edit</Button>
+                <Button onClick={()=>cancelEvent(event.event_id)}>Cancel Event</Button>
             </EventDiv>
         </div>
     )
